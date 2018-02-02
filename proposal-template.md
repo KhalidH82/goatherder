@@ -8,7 +8,7 @@ The name of my game is called Goat Herder. This game is based on memory and is l
 
 ## Wireframe
 
-Included in images folder.
+Included in images folder under goatwire file.
 
 ## Initial thoughts on game structure
 
