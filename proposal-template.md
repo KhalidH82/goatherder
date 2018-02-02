@@ -4,7 +4,7 @@
 
 ## What is Goat Herder?
 
-The name of my game is called Goat Herder. This game is based on memory and is layed out on a 5X5 board which will contain 10 images with a matching pair. The objective of the game is to herd all the goats until the entire board is flipped over and all the goats have found a match.
+The name of my game is called Goat Herder. This game is based on memory and is layed out on a 5X4 board which will contain 10 images with a matching pair. The objective of the game is to herd all the goats until the entire board is flipped over and all the goats have found a match.
 
 ## Wireframe
 
