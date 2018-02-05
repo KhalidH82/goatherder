@@ -11,14 +11,17 @@ let picValue = [];
 let picId = [];
 let flipped = 0;
 let checkWin = [];
+let checkWinPlay1 = [];
+let checkWinPlay2 = [];
+let play1 = [];
+let play2 = [];
+let whoseTurn = 1;
 
 startGame();
 
 function startGame() {
 	let start = document.querySelector('div').style.display = 'none';
 }
-
-
 
 function randomNumber() {
 	random = Math.random();
@@ -59,7 +62,6 @@ function createBoard(){
 	}
 
 }
-//createBoard();
 
 function createBoard2(){
 	let logo = document.querySelector('.logo').style.display = 'none';
@@ -77,13 +79,11 @@ function createBoard2(){
 		tiles.setAttribute('src', 'Images/goatlogo.jpg');
 		tiles.setAttribute('id', mapArray[i]+1);	
 		console.log("id added -> " + i);
-		tiles.addEventListener('click', flipCard);
+		tiles.addEventListener('click', flipCard2);
 		doc.appendChild(tiles);	
 
 	}
 }
-createBoard2();
-
 
 function randomNumber2() {
 	random = Math.random();
@@ -117,13 +117,86 @@ function flipCard(e){
 
 }
 
+function flipCard2(e){
+	console.log('the event --> ', e.target);
+	console.log('goat id -->' + this.id);
+	this.setAttribute('src', 'Images/goat'+this.id+'.jpeg')
+	goatArray.push(this.id)
+	window.setTimeout(function() {
+		console.log('timeout')
+		if (goatArray.length === 2){
+			if(whoseTurn === 1) {
+				checkMatch2();
+			}
+			else if(whoseTurn === 2) {
+				checkMatch3();
+			}
+			
+		}
+	}, 100)
+
+}
+
+function checkMatch2(){
+
+	if ( goatArray[0] - goatArray[1] === 15){
+		console.log(goatArray[0]);
+		play1.push(goatArray[0]);
+		play1.push(goatArray[1]);
+		console.log(checkWinPlay1)
+		alert('baaaaHHHHH');
+	}else if ( goatArray[0] - goatArray[1] === -15) {
+		console.log(goatArray[0]);
+		play1.push(goatArray[0]);
+		play1.push(goatArray[1]);
+		alert('baaaaHHHHH')
+	} else {
+		alert('no match found');
+		let tile = document.getElementById(goatArray[0]);
+		tile.setAttribute('src', 'Images/goatlogo.jpg');
+		let tile2 = document.getElementById(goatArray[1]);
+		tile2.setAttribute('src', 'Images/goatlogo.jpg');
+	}
+
+	goatArray = [];
+	
+	console.log(gameComplete);
+	gameCompletePlay1();
+}
+
+function checkMatch3(){
+	if ( goatArray[0] - goatArray[1] === 15){
+		console.log(goatArray[0]);
+		play2.push(goatArray[0]);
+		play2.push(goatArray[1]);
+		console.log(checkWinPlay2)
+		alert('baaaaHHHHH');
+	}else if ( goatArray[0] - goatArray[1] === -15) {
+		console.log(goatArray[0]);
+		play2.push(goatArray[0]);
+		play2.push(goatArray[1]);
+		alert('baaaaHHHHH')
+	} else {
+		alert('no match found');
+		let tile = document.getElementById(goatArray[0]);
+		tile.setAttribute('src', 'Images/goatlogo.jpg');
+		let tile2 = document.getElementById(goatArray[1]);
+		tile2.setAttribute('src', 'Images/goatlogo.jpg');
+	}
+
+	goatArray = [];
+	
+	console.log(gameComplete);
+	gameCompletePlay2();
+}
+
 function checkMatch(){
-	if ( goatArray[0] - goatArray[1] === 10){
+	if ( goatArray[0] - goatArray[1] === 15){
 		console.log(goatArray[0]);
 		checkWin.push(goatArray[0]);
 		checkWin.push(goatArray[1]);
 		alert('baaaaHHHHH');
-	}else if ( goatArray[0] - goatArray[1] === -10) {
+	}else if ( goatArray[0] - goatArray[1] === -15) {
 		console.log(goatArray[0]);
 		checkWin.push(goatArray[0]);
 		checkWin.push(goatArray[1]);
@@ -146,15 +219,56 @@ function gameComplete() {
 	}
 }
 
+function gameCompletePlay1() {
+	if ( play1.length === 2 ) {
+		winner2();
+
+	} else if (play1.length !== 2) {
+		alert('Player 2 turn!');
+		whoseTurn = 2;
+	}
+}
+
+function gameCompletePlay2() {
+	if ( play2.length === 2 ) {
+		winner3();
+	} else if (play2.length !== 2) {
+		alert('Player 1 turn!');
+		whoseTurn = 1;
+	}
+}
+
 function winner() {
 	let blank = document.querySelector('div');
 	blank.innerHTML = '';
 	let body = document.querySelector('body');
  	let end = document.createElement('h1');
  	end.innerHTML = "Winner!";
- 	(body).appendChild(end);
+ 	body.appendChild(end);
  	console.log(end);
- 	(blank).appendChild(end);
+ 	blank.appendChild(end);
+}	
+
+function winner2() {
+	let blank = document.querySelector('div');
+	blank.innerHTML = '';
+	let body = document.querySelector('body');
+ 	let end = document.createElement('h1');
+ 	end.innerHTML = "Winner1!";
+ 	body.appendChild(end);
+ 	console.log(end);
+ 	blank.appendChild(end);
+}	
+
+function winner3() {
+	let blank = document.querySelector('div');
+	blank.innerHTML = '';
+	let body = document.querySelector('body');
+ 	let end = document.createElement('h1');
+ 	end.innerHTML = "Winner2!";
+ 	body.appendChild(end);
+ 	console.log(end);
+ 	blank.appendChild(end);
 }	
 
 

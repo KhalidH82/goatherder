@@ -1,8 +1,12 @@
 body {
-	background-color: black;
+	background-image: url('Images/goatback.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	width: 1280px;
 	height: 800px;
 	margin: 0 auto;
+	font-family: 'Kumar One Outline', cursive;
+	font-size: 25px;
 
 }
 
@@ -26,14 +30,14 @@ div {
 
 .head {
 	color: white;
-	text-align: center;
 }
 
 .logo {
-	width: 400px;
-	height: 400px;
-	margin-left: 450px;
+	width: 150px;
+	height: 150px;
 	display: block;
+	border-radius: 50%;
+	float: right;
 
 }
 
@@ -44,4 +48,5 @@ div {
 
 h1 {
 	color: white;
+
 }
