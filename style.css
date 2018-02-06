@@ -2,51 +2,69 @@ body {
 	background-image: url('Images/goatback.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	width: 1280px;
-	height: 800px;
 	margin: 0 auto;
-	font-family: 'Kumar One Outline', cursive;
-	font-size: 25px;
-
+	font-family: 'Nanum Brush Script', cursive;
+	font-size: 35px;
 }
 
 div {
-	width: 1300px;
-	height: 500px;
-	margin-top: 50px;
-	margin-left: 80px;
+	margin: 0 auto;
+	width: 1000px;
+	height: 200px;
 }
-
 
 .goatPhoto {
 	background: gray;
 	border: dodgerblue solid 2px;
 	margin:0 auto;
-	width: 165px;
-	height: 105px;
+	width: 125px;
+	height: 85px;
 	padding: 25px;
+	margin: 5px;
 	float: left;
 }
 
-.head {
-	color: white;
-}
-
 .logo {
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 200px;
 	display: block;
 	border-radius: 50%;
 	float: right;
-
 }
 
-.button {
-	margin-left: 575px;
-	margin-top: 100px;
+button {
+	margin-left: 1000px;
+	opacity: .3;
+	width: 125px;
+	height: 100px;
+	font-family: 'Nanum Brush Script', cursive;
+	font-size: 30px;
+	border: 3px solid darkolivegreen;
+	border-radius: 50%;
+}
+
+button:hover {
+	margin-left: 1000px;
+	opacity: .8;
+	width: 125px;
+	height: 100px;
+	font-family: 'Nanum Brush Script', cursive;
+	font-size: 30px;
+	border: 3px solid white;
+	border-radius: 50%;
+
 }
 
 h1 {
-	color: white;
-
+	color: darkolivegreen;
+	text-shadow: 3px 2px white;
+	letter-spacing: 3px;
+	padding-bottom: 25px;
+	text-align: center;
 }
+
+@media only screen and (max-width: 500px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+    }

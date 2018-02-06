@@ -11,26 +11,46 @@ let picValue = [];
 let picId = [];
 let flipped = 0;
 let checkWin = [];
-let checkWinPlay1 = [];
-let checkWinPlay2 = [];
 let play1 = [];
 let play2 = [];
 let whoseTurn = 1;
+let checkWinPlay1 = [];
+let checkWinPlay2 = [];
 
-startGame();
 
-function startGame() {
-	let start = document.querySelector('div').style.display = 'none';
+//Soundboard
+function bah () {
+	let sound = document.querySelector('audio');
+	sound.play();
 }
 
+function bahwin () {
+	let sound = document.querySelector('.win');
+	sound.play();
+}
+
+clearDom();
+
+//Removes elements for landing page
+function clearDom() {
+	console.log('clear dom');
+	let playAgain = document.querySelector('.reset').style.display = 'none';
+	let start = document.querySelectorAll('div');
+	console.log(start);
+	start.forEach(function(element){
+		element.remove();
+	})
+}
+
+//Creates a random board of images for 1 player
 function randomNumber() {
 	random = Math.random();
-	random2 = Math.floor(random * 20);
+	random2 = Math.floor(random * 30);
 	return random2;
 }
 function createRandArray() {
 	let randNum = [];
-	while(randNum.length < 20) {
+	while(randNum.length < 30) {
 		let random = randomNumber();
 		if (randNum.includes(random) === false) {
 			randNum.push(random);
@@ -42,13 +62,13 @@ function createRandArray() {
 }
 
 function createBoard(){
-	let logo = document.querySelector('.logo').style.display = 'none';
+	bah();
 	let head = document.querySelector('.head').style.display = 'none';
 	let button = document.querySelector('.button').style.display = 'none';
 	let button2 = document.querySelector('.button2').style.display = 'none';
 	let mapArray = createRandArray();
 	console.log('createboard');
-	let picArray = 20;
+	let picArray = 30;
 	let doc = document.createElement('div');
 	document.body.appendChild(doc);
 	for (let i=0; i < picArray; i++) {
@@ -63,8 +83,9 @@ function createBoard(){
 
 }
 
+//Creates 2 player board
 function createBoard2(){
-	let logo = document.querySelector('.logo').style.display = 'none';
+	bah();
 	let head = document.querySelector('.head').style.display = 'none';
 	let button = document.querySelector('.button').style.display = 'none';
 	let button2 = document.querySelector('.button2').style.display = 'none';
@@ -85,6 +106,7 @@ function createBoard2(){
 	}
 }
 
+//Creates a random board of images for 2 player
 function randomNumber2() {
 	random = Math.random();
 	random2 = Math.floor(random * 30);
@@ -103,6 +125,7 @@ function createRandArray2() {
 
 }
 
+//Performs flip event when card is clicked and checks for match
 function flipCard(e){
 	console.log('the event --> ', e.target);
 	console.log('goat id -->' + this.id);
@@ -117,6 +140,7 @@ function flipCard(e){
 
 }
 
+//Performs flip event when card is clicked and checks for match and keeps track of which players turn it is
 function flipCard2(e){
 	console.log('the event --> ', e.target);
 	console.log('goat id -->' + this.id);
@@ -137,6 +161,8 @@ function flipCard2(e){
 
 }
 
+
+//Keeps track of player 1 matches
 function checkMatch2(){
 
 	if ( goatArray[0] - goatArray[1] === 15){
@@ -164,6 +190,7 @@ function checkMatch2(){
 	gameCompletePlay1();
 }
 
+//Keeps track of player 2 matches
 function checkMatch3(){
 	if ( goatArray[0] - goatArray[1] === 15){
 		console.log(goatArray[0]);
@@ -190,6 +217,8 @@ function checkMatch3(){
 	gameCompletePlay2();
 }
 
+
+//Checks for matches until game is complete foir 1 player game
 function checkMatch(){
 	if ( goatArray[0] - goatArray[1] === 15){
 		console.log(goatArray[0]);
@@ -213,12 +242,15 @@ function checkMatch(){
 	gameComplete();
 }
 
+
+//Checks matches to see if game is complete
 function gameComplete() {
 	if ( checkWin.length === 2 ) {
 		winner();
 	}
 }
 
+//Checks to see which player has won
 function gameCompletePlay1() {
 	if ( play1.length === 2 ) {
 		winner2();
@@ -228,7 +260,6 @@ function gameCompletePlay1() {
 		whoseTurn = 2;
 	}
 }
-
 function gameCompletePlay2() {
 	if ( play2.length === 2 ) {
 		winner3();
@@ -238,38 +269,56 @@ function gameCompletePlay2() {
 	}
 }
 
+
+//Creates a winner page when game is complete
 function winner() {
+	bahwin();
 	let blank = document.querySelector('div');
 	blank.innerHTML = '';
+	let end = document.createElement('h1');
+	end.setAttribute('id', 'win1')
+	end.innerHTML = "Winner!";
+	blank.appendChild(end);
 	let body = document.querySelector('body');
- 	let end = document.createElement('h1');
- 	end.innerHTML = "Winner!";
  	body.appendChild(end);
- 	console.log(end);
- 	blank.appendChild(end);
+	let endPage = document.createElement('p');
+	endPage.setAttribute('id', 'win2')
+ 	endPage.innerHTML = 'Congratulations you have herded all your goats successfully!'
+ 	body.appendChild(endPage);
+ 	let playAgain = document.querySelector('.reset');
+ 	playAgain.innerHTML = 'Play again?';
+ 	playAgain.style.display = 'block';
+
+	body.appendChild(playAgain);
+	console.log(end);
+ 	
 }	
 
 function winner2() {
+	bahwin();
 	let blank = document.querySelector('div');
 	blank.innerHTML = '';
 	let body = document.querySelector('body');
  	let end = document.createElement('h1');
- 	end.innerHTML = "Winner1!";
+ 	end.innerHTML = "Winner1! You got "+ play1.length + " matches!";
  	body.appendChild(end);
  	console.log(end);
  	blank.appendChild(end);
 }	
 
 function winner3() {
+	bahwin();
 	let blank = document.querySelector('div');
 	blank.innerHTML = '';
 	let body = document.querySelector('body');
  	let end = document.createElement('h1');
- 	end.innerHTML = "Winner2!";
+	end.innerHTML = "Winner2! You got "+ play2.length + " matches!" ;
  	body.appendChild(end);
  	console.log(end);
  	blank.appendChild(end);
 }	
+
+
 
 
 
