@@ -16,6 +16,8 @@ let play2 = [];
 let whoseTurn = 1;
 let checkWinPlay1 = [];
 let checkWinPlay2 = [];
+let levelUp = 4;
+let scoreBoard = document.createElement('p');
 
 
 //Soundboard
@@ -34,7 +36,6 @@ clearDom();
 //Removes elements for landing page
 function clearDom() {
 	console.log('clear dom');
-	let playAgain = document.querySelector('.reset').style.display = 'none';
 	let start = document.querySelectorAll('div');
 	console.log(start);
 	start.forEach(function(element){
@@ -164,7 +165,6 @@ function flipCard2(e){
 
 //Keeps track of player 1 matches
 function checkMatch2(){
-
 	if ( goatArray[0] - goatArray[1] === 15){
 		console.log(goatArray[0]);
 		play1.push(goatArray[0]);
@@ -183,10 +183,7 @@ function checkMatch2(){
 		let tile2 = document.getElementById(goatArray[1]);
 		tile2.setAttribute('src', 'Images/goatlogo.jpg');
 	}
-
 	goatArray = [];
-	
-	console.log(gameComplete);
 	gameCompletePlay1();
 }
 
@@ -225,11 +222,17 @@ function checkMatch(){
 		checkWin.push(goatArray[0]);
 		checkWin.push(goatArray[1]);
 		alert('baaaaHHHHH');
+		scoreBoard.innerHTML = "Matches: " + checkWin.length/2;
+		let matchTop = document.querySelector('p');
+		matchTop.appendChild(scoreBoard);
 	}else if ( goatArray[0] - goatArray[1] === -15) {
 		console.log(goatArray[0]);
 		checkWin.push(goatArray[0]);
 		checkWin.push(goatArray[1]);
 		alert('baaaaHHHHH')
+		scoreBoard.innerHTML = "Matches: " + checkWin.length/2;
+		let matchTop = document.querySelector('p');
+		matchTop.appendChild(scoreBoard);
 	} else {
 		alert('no match found');
 		let tile = document.getElementById(goatArray[0]);
@@ -243,28 +246,37 @@ function checkMatch(){
 }
 
 
-//Checks matches to see if game is complete
+//Checks matches to see if game is complete   2-->lvl2  4-->lv3  8-->lvl4 10-->win
 function gameComplete() {
-	if ( checkWin.length === 2 ) {
+	if ( checkWin.length === 4 && checkWin.length === levelUp ) {
+		alert('Congratulations...Level 2');
+		levelUp += 4;
+	}	else if ( checkWin.length === 8 && checkWin.length === levelUp) {
+		alert('Congratulations...Level 3')
+		levelUp += 8
+	}	else if (checkWin.length === 16 && checkWin.length === levelUp) {
+		alert ('Congratulations...Level 4')
+		levelUp += 4
+	}	else if (checkWin.length === 20) {
 		winner();
 	}
 }
 
 //Checks to see which player has won
 function gameCompletePlay1() {
-	if ( play1.length === 2 ) {
+	if ( play1.length === 10 ) {
 		winner2();
 
-	} else if (play1.length !== 2) {
-		alert('Player 2 turn!');
+	} else if (play1.length !== 10) {
+		alert('Players 2 turn!');
 		whoseTurn = 2;
 	}
 }
 function gameCompletePlay2() {
-	if ( play2.length === 2 ) {
+	if ( play2.length === 10 ) {
 		winner3();
-	} else if (play2.length !== 2) {
-		alert('Player 1 turn!');
+	} else if (play2.length !== 10) {
+		alert('Players 1 turn!');
 		whoseTurn = 1;
 	}
 }
@@ -273,7 +285,7 @@ function gameCompletePlay2() {
 //Creates a winner page when game is complete
 function winner() {
 	bahwin();
-	let blank = document.querySelector('div');
+	let blank = document.querySelector('body');
 	blank.innerHTML = '';
 	let end = document.createElement('h1');
 	end.setAttribute('id', 'win1')
@@ -281,18 +293,14 @@ function winner() {
 	blank.appendChild(end);
 	let body = document.querySelector('body');
  	body.appendChild(end);
-	let endPage = document.createElement('p');
+	let endPage = document.createElement('h1');
 	endPage.setAttribute('id', 'win2')
  	endPage.innerHTML = 'Congratulations you have herded all your goats successfully!'
  	body.appendChild(endPage);
- 	let playAgain = document.querySelector('.reset');
- 	playAgain.innerHTML = 'Play again?';
- 	playAgain.style.display = 'block';
-
-	body.appendChild(playAgain);
 	console.log(end);
  	
 }	
+
 
 function winner2() {
 	bahwin();
@@ -300,7 +308,7 @@ function winner2() {
 	blank.innerHTML = '';
 	let body = document.querySelector('body');
  	let end = document.createElement('h1');
- 	end.innerHTML = "Winner1! You got "+ play1.length + " matches!";
+ 	end.innerHTML = "Winner1! You got "+ play1.length/2 + " matches!";
  	body.appendChild(end);
  	console.log(end);
  	blank.appendChild(end);
@@ -312,11 +320,12 @@ function winner3() {
 	blank.innerHTML = '';
 	let body = document.querySelector('body');
  	let end = document.createElement('h1');
-	end.innerHTML = "Winner2! You got "+ play2.length + " matches!" ;
+	end.innerHTML = "Winner2! You got "+ play2.length/2 + " matches!" ;
  	body.appendChild(end);
  	console.log(end);
  	blank.appendChild(end);
 }	
+
 
 
 

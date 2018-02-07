@@ -9,7 +9,7 @@ body {
 
 div {
 	margin: 0 auto;
-	width: 1000px;
+	width: 1280px;
 	height: 200px;
 }
 
@@ -22,6 +22,12 @@ div {
 	padding: 25px;
 	margin: 5px;
 	float: left;
+	opacity: .5;
+	transition: .3s;
+}
+
+.goatPhoto:hover {
+	opacity: 1;
 }
 
 .logo {
@@ -34,9 +40,10 @@ div {
 
 button {
 	margin-left: 1000px;
-	opacity: .3;
+	opacity: .4;
+	transition: 0.5s;
 	width: 125px;
-	height: 100px;
+	height: 105px;
 	font-family: 'Nanum Brush Script', cursive;
 	font-size: 30px;
 	border: 3px solid darkolivegreen;
@@ -45,9 +52,9 @@ button {
 
 button:hover {
 	margin-left: 1000px;
-	opacity: .8;
+	opacity: 1;
 	width: 125px;
-	height: 100px;
+	height: 105px;
 	font-family: 'Nanum Brush Script', cursive;
 	font-size: 30px;
 	border: 3px solid white;
@@ -61,6 +68,16 @@ h1 {
 	letter-spacing: 3px;
 	padding-bottom: 25px;
 	text-align: center;
+}
+
+p {
+	color: darkolivegreen;
+	font-size: 50px;
+	float: right;
+	display: inline-block;
+	padding-right: 10px;
+	text-shadow: 2px 2px 4px white;
+	font-weight: bolder;
 }
 
 @media only screen and (max-width: 500px) {
