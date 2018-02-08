@@ -1,10 +1,4 @@
-// Create landing page with One Player Button to start game
-// Create a random board with 5X4 divs containing goat images
-// Create a new board function
-// Create a flip over card function 
-// Create function to flip back if not matched
-// Create function to check logic between matches of 2 flipped cards and remain flipped when matched 
-// Create function when all cards are matched to a "winner" page
+//Images sourced from https://www.google.com
 
 let goatArray = [];
 let picValue = [];
@@ -23,7 +17,7 @@ let scoreBoard2 = document.createElement('p');
 
 
 //Soundboard
-// Sounds referenced from 
+// Sounds sourced from 
 // http://www.orangefreesounds.com/category/sound-effects/animal-sounds/goat-sounds/
 // https://averagehunter.com/wild-game-downloads/goat/?doing_wp_cron=1518060031.8977129459381103515625
 function bah() {
