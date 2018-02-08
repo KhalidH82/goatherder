@@ -16,3 +16,9 @@ In the two player mode, players take turns flipping cards over to find matches. 
 Technologies Used
 
 The technology I used to create my game is Vanilla JavaScript. I was also able to incorporate button animations, hover effects, and sounds to add some visual appeal and creativity to my game. My approach was to create a functional game and then I started adding features to make it more complex. Once that was finished I styled the game and also resolved some issues of unusual behavior when user double clicks on images and the speed the cards were being flipped. Lastly I refactored my code, removed all console.logs, and inserted comments which describe each function. 
+
+
+Images sourced from https://www.google.com
+Sounds sourced from 
+http://www.orangefreesounds.com/category/sound-effects/animal-sounds/goat-sounds/
+https://averagehunter.com/wild-game-downloads/goat/?doing_wp_cron=1518060031.8977129459381103515625
