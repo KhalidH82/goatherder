@@ -1,6 +1,6 @@
 # Project-1-Goat-Herder
 Goat Herder memory game
-<a href="https://khalidh82.github.io/goatherder/><img src="./Images/screen.png"></a>
+<a href="https://khalidh82.github.io/goatherder/"><img src="./Images/screen.png"></a>
 
 The name of my game is called Goat Herder and it is a homage to our WDI class. This game features a one player as well as a two player mode where the user uses their memory to match pictures of goats. Goats are displayed when the the logo is clicked, but if match isn't made the cards will quickly flip back over.
 
