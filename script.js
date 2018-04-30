@@ -13,7 +13,7 @@ let checkWinPlay2 = [];
 let levelUp = 4;
 let scoreBoard = document.createElement('p');
 let scoreBoard2 = document.createElement('p');
-
+let backbutt = document.createElement('home')
 
 
 //Soundboard
@@ -77,6 +77,7 @@ function createBoard(){
 	let head = document.querySelector('.head').style.display = 'none';
 	let button = document.querySelector('.button').style.display = 'none';
 	let button2 = document.querySelector('.button2').style.display = 'none';
+	let backbutt = document.querySelector('.home').style.display = 'block';
 	let mapArray = createRandArray();
 	let picArray = 30;
 	let doc = document.createElement('div');
@@ -99,6 +100,7 @@ function createBoard2(){
 	let head = document.querySelector('.head').style.display = 'none';
 	let button = document.querySelector('.button').style.display = 'none';
 	let button2 = document.querySelector('.button2').style.display = 'none';
+	let backbutt = document.querySelector('.home').style.display = 'block';
 	let mapArray = createRandArray();
 	let picArray = 30;
 	let doc = document.createElement('div');
